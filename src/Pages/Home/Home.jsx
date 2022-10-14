@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, InputGroup, FormControl } from "react-bootstrap";
 import { BiSearch } from "react-icons/bi";
 import SearchFilter from "react-filter-search";
+import ProductCard from "../../Components/ProductCard";
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -21,7 +22,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{ height: "100vh", width: "100%", background: "red" }}>
+    <div style={{ height: "100%", width: "100%", background: "red" }}>
       <Container className="py-4">
         <Row className="justify-content-center">
           <Col
@@ -49,8 +50,9 @@ const Home = () => {
             renderResults={results => (
               <Row className="justify-content-center">
                 {results.map((items, i) => (
-                  <h1>{items.title}</h1>
-  ))}
+                    <ProductCard data={items} key={i} />
+                //   <h1>{items.title}</h1>
+                  ))}
               </Row>
             )}
           />
