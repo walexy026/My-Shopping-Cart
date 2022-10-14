@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
-import { useCart } from 'react-use-cart';
+import { useCart } from 'react-use-cart';  
+import {BsCartPlus} from 'react-icons/bs' 
 
 const ProductCard = (props) => {
     let {image,price,title}= props.data
@@ -19,14 +20,20 @@ const ProductCard = (props) => {
             </div>
         </div>
       <Card.Body>
-        <Card.Title>{title}
+        <Card.Title style={{textOverFlow:'ellipsis', oberflow:'hidden', whiteSpace:'nowrap'}}>
+            {title}
         </Card.Title>
         <Card.Title>
             $.<span className='h4'>{price}</span>
         </Card.Title>
         
         
-        <Button variant="primary">Go somewhere</Button>
+        <Button onClick={()=>addToCart()}
+        className = {`d-flex, align-item-center, m-auto border-0`}
+        >
+        <BsCartPlus size='1.5rem'/>
+            Add to Cart
+        </Button>
       </Card.Body>
     </Card>
   )
