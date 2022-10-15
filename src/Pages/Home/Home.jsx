@@ -22,18 +22,18 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{ height: "100%", width: "100%", background: "red" }}>
-      <Container className="py-4">
+    <div style={{ height: "100%", width: "100%", background: "red", zIndex:'-100' }}>
+      <Container className="py-5" style={{background: "blue", zIndex:'-100' }}>
         <Row className="justify-content-center">
           <Col
-            xs={10}
-            md={7}
+            xs={12}
+            md={8}
             lg={6}
             xl={4}
             className="mb-3 mx-a to text-center"
           >
-            <h1 className="text-black my-5 ">Search Product</h1>
-            <InputGroup className="mb-3 ">
+            <h1 className="text-black my-4 ">Search Product</h1>
+            <InputGroup className="mb-1 ">
               <InputGroup.Text className="text-black-dark-primary ">
                 <BiSearch size="2rem" />
               </InputGroup.Text>
@@ -47,17 +47,15 @@ const Home = () => {
           <SearchFilter
             value={searchInput}
             data={productData}
-            renderResults={results => (
+            renderResults={(results) => (
               <Row className="justify-content-center">
                 {results.map((items, i) => (
-                    <ProductCard data={items} key={i} />
-                //   <h1>{items.title}</h1>
-                  ))}
+                  <ProductCard data={items} key={i} />
+                ))}
               </Row>
             )}
           />
         </Row>
-        {/* <p>{searchInput}</p> */}
       </Container>
     </div>
   );

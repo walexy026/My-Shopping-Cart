@@ -10,6 +10,7 @@ const Cart = () => {
     totalUniqueItems,
     items,
     cartTotal,
+    updateItem,
     updateItemQuantity,
     removeItem,
     emptyCart,
@@ -21,7 +22,7 @@ const Cart = () => {
       </h1>
       <Row className="justify-content-center">
         <Table
-          responsive="sm"
+          responsive
           className="mb-5"
           striped
           bordered
@@ -97,7 +98,7 @@ const Cart = () => {
         </Table>
         {!isEmpty && (
           <Row
-            style={{ position: "fixed", bottom: 0 }}
+            style={{ position: "fixed", bottom: 0, background:'yellow' }}
             className={`justify-content-center, w-100`}
           >
             <Col className="py-2">
@@ -114,12 +115,12 @@ const Cart = () => {
                 Clear Cart
               </Button>
               <Button
-                variant="danger"
+                variant="success"
                 className="m-2"
-                onClick={() => emptyCart()}
+                onClick={() => updateItem()}
               >
-                <BsCartX size="1.7rem" />
-                Clear Cart
+                <BsCartCheck size="1.7rem" />
+                Update Cart
               </Button>
             </Col>
           </Row>
